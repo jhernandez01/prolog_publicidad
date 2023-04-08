@@ -1,11 +1,12 @@
-/********************************************/
-/**** Nombre_archivo: publicidad.pl       ****/
-/**** Practica FIA Proyecto Prolog        ****/
-/**** Tema: Publicadad de una empresa     ****/
-/**** Tema: CUIDEMOS NUESTRO PLANETA      ****/
-/**** Curso 22/23                         ****/
-/**** Autor: Jorge Hernandez Chavez       ****/
-/*********************************************/
+/*************************************************/
+/**** UNIVERSIDAD NACIONAL A DISTANCIA - UNED ****/
+/**** Nombre_archivo: publicidad.pl           ****/
+/**** Practica PEC2 - FIA Proyecto Prolog     ****/
+/**** Tema: Publicadad de una empresa         ****/
+/**** Tema: CUIDEMOS NUESTRO PLANETA          ****/
+/**** Curso 22/23                             ****/
+/**** Autor: Jorge Hernandez Chavez           ****/
+/*************************************************/
 
 
 %predicados dinamicos
