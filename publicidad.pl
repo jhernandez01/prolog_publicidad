@@ -102,7 +102,9 @@ menu(ACCION,Titulo) :- nivel(1),
 		write(" 3. Prensa escrita"), nl,
 		write(" 4. Carteles"), nl, 
 		write(" 5. TV television"), nl,
-		write(" 6. Listar reproducciones"), nl,
+		write(" 6. YouTube"), nl,
+		write(" 7. Redes Sociales"), nl,
+		write(" 8. Listar reproducciones"), nl,
 		write(" 0. Salir"), nl,nl,
 		read(Opcion),
 		ejecutar(Opcion,Titulo,anunciar).
@@ -116,7 +118,9 @@ ejecutar(Opcion, Titulo,anunciar) :-
 		Opcion == 3, mensaje(anunciar,prensa,Titulo), menu(anunciar,Titulo);
 		Opcion == 4, mensaje(anunciar,carteles,Titulo), menu(anunciar,Titulo);
 		Opcion == 5, mensaje(anunciar,tv,Titulo), menu(anunciar,Titulo);
-		Opcion == 6, mensaje(listar), menu(anunciar,Titulo);
+		Opcion == 6, mensaje(anunciar,youtube,Titulo), menu(anunciar,Titulo);
+		Opcion == 7, mensaje(anunciar,redes_sociales,Titulo), menu(anunciar,Titulo);
+		Opcion == 8, mensaje(listar), menu(anunciar,Titulo);
 		%si el usuario elige 0 termina la aplicacion.
 		Opcion == 0, true.		 
 
@@ -206,6 +210,36 @@ mensaje(anunciar,tv,Titulo) :-
 		assert(accion(anunciar)),	
 		agregar(tv), !.
 
+%Define los predicados que se realizan dependiendo del tipo de publicidad seleccionada. 
+%opcion youtube
+mensaje(anunciar,youtube,Titulo) :-
+		nl,nl,
+        separador,
+		write("Tema: "),write(Titulo),nl,
+		separador,
+		write("YouTube, una maravilla para ver videos."), nl,nl,
+		write("Busquemos videos relacionados con el cuidado del planeta..."), nl,
+		write("- Como sabemos, si buscas algo en YouTube, luego te propone otras cosas"), nl,
+		write("relacionadas con el planeta!!!...,  es que usa la IA"), nl,
+		write("lo que no sabemos que tipo de algoritmos usa..."), nl, nl,
+		%aniade el tipo de accion de publicidad recibido como parametro
+		assert(accion(anunciar)),	
+		agregar(youtube), !.
+
+%Define los predicados que se realizan dependiendo del tipo de publicidad seleccionada. 
+%opcion redes_sociales
+mensaje(anunciar,redes_sociales,Titulo) :-
+		nl,nl,
+        separador,
+		write("Tema: "),write(Titulo),nl,
+		separador,
+		write("Redes Sociales, otra maravilla para relaciones sociales, subir videos."), nl,
+		write("subir fotos, etc. que descontrol y vanidad, necesitamos Agenda 2030"), nl,
+		write("para temas relacionados con el cuidado del planeta..."), nl,nl,
+		%aniade el tipo de accion de publicidad recibido como parametro
+		assert(accion(anunciar)),	
+		agregar(redes_sociales), !.
+
 %Predicado recursivo, para escribir la lista de acciones de publicidad realizadas en el fichero txt
 escribir_acciones_realizadas([])     :- write("No existe ninguna accion para escribir"), !.
 escribir_acciones_realizadas([P|[]]) :- escribir_fichero(P), nl, !.
@@ -226,7 +260,7 @@ titulo_mostrar_historico:-
 		separador,
 		write("                   MOSTRAMOS DATOS HISTORCIOS VISITADOS     "), nl,
 		separador.
-		
+
 %https://stackoverflow.com/questions/56620094/how-can-i-set-a-newline-in-a-set-string-in-swi-prolog
 %http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse54
 leer_fichero:-
@@ -239,7 +273,7 @@ leer_fichero:-
 		nl,
 		close(In).
 
-%opcion 6 del los mensajes a mostrar 
+%opcion 8 del los mensajes a mostrar 
 mensaje(ACCION) :- ACCION == listar,
 		write(" "), nl, nl,
 		separador,
