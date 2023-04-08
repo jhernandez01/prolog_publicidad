@@ -212,6 +212,7 @@ escribir_acciones_realizadas([P|[]]) :- escribir_fichero(P), nl, !.
 escribir_acciones_realizadas([P|R])  :- escribir_acciones_realizadas(R), escribir_fichero(P), nl.
 
 %guardar en un fichero txt los datos historicos visitados por el usuario
+%https://stackoverflow.com/questions/22747147/swi-prolog-write-to-file
 escribir_fichero(ACCION) :-
 		%crear el fichero fisico en la carpeta temp del disco duro c
 		open('output.txt',append,Out),
@@ -225,7 +226,9 @@ titulo_mostrar_historico:-
 		separador,
 		write("                   MOSTRAMOS DATOS HISTORCIOS VISITADOS     "), nl,
 		separador.
-
+		
+%https://stackoverflow.com/questions/56620094/how-can-i-set-a-newline-in-a-set-string-in-swi-prolog
+%http://www.let.rug.nl/bos/lpn//lpnpage.php?pagetype=html&pageid=lpn-htmlse54
 leer_fichero:-
 		%crear el fichero fisico en la carpeta temp del disco duro c
 		open('output.txt',read,In),
