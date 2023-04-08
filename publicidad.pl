@@ -213,39 +213,28 @@ escribir_acciones_realizadas([P|R])  :- escribir_acciones_realizadas(R), escribi
 
 %guardar en un fichero txt los datos historicos visitados por el usuario
 escribir_fichero(ACCION) :-
-		open('c:/temp/output.txt',append,Out),
+		%crear el fichero fisico en la carpeta temp del disco duro c
+		open('output.txt',append,Out),
 		write(Out,ACCION),
 		write(Out,'.\n') ,
 		close(Out).
 
+
 %leer y mostrar por pantalla los datos historicos	
-
-leer_fichero:-
-    open('c:/temp/output.txt',read,In),
-    repeat,
-    read_line_to_codes(In,X),writef(" "),
-    writef(X),nl,
-    X=end_of_file,!,
-    nl,
-    close(In).
-
-leer_fichero1:-
- 		write(" "), nl, nl,
+titulo_mostrar_historico:- 
 		separador,
 		write("                   MOSTRAMOS DATOS HISTORCIOS VISITADOS     "), nl,
-		separador,
-		open('c:/temp/output.txt',read,Source),
-        leer_data(Source,Data),
-        close(Source),
-	    write(Data),  nl.
-   
-	leer_data(Stream,[]):- 
-		at_end_of_stream(Stream).
+		separador.
 
-	leer_data(Stream,[X|L]):-
-		\+  at_end_of_stream(Stream),
-		read(Stream,X),
-		leer_data(Stream,L).
+leer_fichero:-
+		%crear el fichero fisico en la carpeta temp del disco duro c
+		open('output.txt',read,In),
+		repeat,
+		read_line_to_codes(In,X),writef(" "),
+		writef(X),nl,
+		X=end_of_file,!,
+		nl,
+		close(In).
 
 %opcion 6 del los mensajes a mostrar 
 mensaje(ACCION) :- ACCION == listar,
@@ -262,7 +251,8 @@ mensaje(ACCION) :- ACCION == listar,
 		%mensaje los datos historicos
 		%guardamos los datos historicos
 		escribir_acciones_realizadas(ACCIONES), nl,
-		%leermos los datos historicos
+		%leemos los datos historicos
+		titulo_mostrar_historico,
 		leer_fichero, nl,
 		write(" "), nl, nl.
 						
