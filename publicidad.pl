@@ -217,11 +217,13 @@ mensaje(anunciar,youtube,Titulo) :-
         separador,
 		write("Tema: "),write(Titulo),nl,
 		separador,
-		write("YouTube, una maravilla para ver videos."), nl,nl,
+		write("YouTube, una maravilla para ver videos y pasadlo bien!!!"), nl,nl,
 		write("Busquemos videos relacionados con el cuidado del planeta..."), nl,
 		write("- Como sabemos, si buscas algo en YouTube, luego te propone otras cosas"), nl,
 		write("relacionadas con el planeta!!!...,  es que usa la IA"), nl,
 		write("lo que no sabemos que tipo de algoritmos usa..."), nl, nl,
+		write("Necesitamos saber algo sobre la Agenda 2030 que tiene objetivos"), nl,
+		write("relacionados con el cuidado del planeta aplicando IA..."), nl,nl,
 		%aniade el tipo de accion de publicidad recibido como parametro
 		assert(accion(anunciar)),	
 		agregar(youtube), !.
@@ -233,9 +235,9 @@ mensaje(anunciar,redes_sociales,Titulo) :-
         separador,
 		write("Tema: "),write(Titulo),nl,
 		separador,
-		write("Redes Sociales, otra maravilla para relaciones sociales, subir videos."), nl,
-		write("subir fotos, etc. que descontrol y vanidad, necesitamos Agenda 2030"), nl,
-		write("para temas relacionados con el cuidado del planeta..."), nl,nl,
+		write("Redes Sociales, otra maravilla para hacer relaciones sociales, subir videos, fotos, etc."), nl,nl,
+		write("Me gusta mucho subir videos a TikTok y fotos a Facebook e Instagram,"), nl,
+		write("quiero ser famoso por un momento!!!, que descontrol y vanidad."), nl,nl,
 		%aniade el tipo de accion de publicidad recibido como parametro
 		assert(accion(anunciar)),	
 		agregar(redes_sociales), !.
